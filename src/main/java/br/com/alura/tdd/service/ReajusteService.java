@@ -5,11 +5,10 @@ import br.com.alura.tdd.modelo.Funcionario;
 
 import java.math.BigDecimal;
 
-public class ResjusteService {
+public class ReajusteService {
     public void concederReajuste(Funcionario funcionario, Desempenho desempenho) {
-        if (desempenho == Desempenho.A_DESEJAR){
-            BigDecimal reajuste = funcionario.getSalario().multiply("0.03");
+            BigDecimal percentual = desempenho.percentualReajuste();
+            BigDecimal reajuste = funcionario.getSalario().multiply(percentual);
             funcionario.reajustarSalario(reajuste);
-        }
     }
 }
